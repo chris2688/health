@@ -1,0 +1,214 @@
+import os
+import re
+import sys
+import io
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
+# 모든 sub-*.html 파일 찾기
+SUBCATEGORY_FILES = [f for f in os.listdir('.') if f.startswith('sub-') and f.endswith('.html')]
+
+def fix_mapping_logic(filepath):
+    """더 강력한 매핑 로직으로 수정"""
+    if not os.path.exists(filepath):
+        return False
+    
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # 기존 DOMContentLoaded 이벤트 리스너 찾기
+        pattern = r'document\.addEventListener\(\'DOMContentLoaded\', async function\(\) \{.*?loadPosts\([^)]+\);\s*\}\);'
+        
+        if not re.search(pattern, content, re.DOTALL):
+            return False
+        
+        # 새로운 매핑 로직
+        new_logic = '''document.addEventListener('DOMContentLoaded', async function() {
+            // 페이지 제목 가져오기
+            const pageTitle = document.querySelector('.page-title')?.textContent?.trim() || 
+                             document.querySelector('h1')?.textContent?.trim() || '';
+            
+            // 현재 페이지 파일명 가져오기 (더 강력한 방법)
+            let currentPage = '';
+            
+            // 방법 1: pathname에서 추출
+            const pathname = window.location.pathname;
+            if (pathname) {
+                const parts = pathname.split('/');
+                currentPage = parts[parts.length - 1];
+            }
+            
+            // 방법 2: 전체 URL에서 추출
+            if (!currentPage || !currentPage.endsWith('.html')) {
+                const href = window.location.href;
+                const match = href.match(/\\/([^/]+\\.html)($|\\?|#)/);
+                if (match) {
+                    currentPage = match[1];
+                }
+            }
+            
+            // 방법 3: 페이지 제목으로 매핑
+            const titleToPage = {
+                '고혈압': 'sub-고혈압.html',
+                '고지혈증': 'sub-고지혈증.html',
+                '협심증/심근경색': 'sub-협심증심근경색.html',
+                '동맥경화': 'sub-동맥경화.html',
+                '뇌졸중': 'sub-뇌졸중.html',
+                '당뇨': 'sub-당뇨.html',
+                '공복혈당장애': 'sub-공복혈당장애.html',
+                '당뇨병합병증': 'sub-당뇨병합병증.html',
+                '관절염': 'sub-관절염.html',
+                '퇴행성관절염': 'sub-퇴행성관절염.html',
+                '허리디스크/목디스크': 'sub-허리디스크목디스크.html',
+                '골다공증': 'sub-골다공증.html',
+                '오십견': 'sub-오십견.html',
+                '갱년기': 'sub-갱년기.html',
+                '갱년기증후군': 'sub-갱년기증후군.html',
+                '갑상선': 'sub-갑상선.html',
+                '대사증후군': 'sub-대사증후군.html',
+                '우울증': 'sub-우울증.html',
+                '우울증/번아웃': 'sub-우울증번아웃.html',
+                '치매': 'sub-치매.html',
+                '치매/경도인지장애': 'sub-치매경도인지장애.html',
+                '수면장애': 'sub-수면장애.html',
+                '수면장애/불면증': 'sub-수면장애불면증.html',
+                '불안장애': 'sub-불안장애.html',
+                '위염': 'sub-위염.html',
+                '위염/위궤양': 'sub-위염위궤양.html',
+                '위염/역류식': 'sub-위염역류식.html',
+                '역류성식도염': 'sub-역류성식도염.html',
+                '지방간': 'sub-지방간.html',
+                '과민성대장증후군': 'sub-과민성대장증후군.html',
+                '대장암': 'sub-대장암.html',
+                '백내장': 'sub-백내장.html',
+                '녹내장': 'sub-녹내장.html',
+                '백내장/녹내장': 'sub-백내장녹내장.html',
+                '치주질환': 'sub-치주질환.html',
+                '치주염/치아손실': 'sub-치주염치아손실.html',
+                '이명/현훈': 'sub-이명현훈.html',
+                '이명/어지럼증': 'sub-이명어지럼증.html',
+                '비만': 'sub-비만.html',
+                '비만/체형변화': 'sub-비만체형변화.html',
+            };
+            
+            if (!currentPage || !currentPage.endsWith('.html')) {
+                currentPage = titleToPage[pageTitle] || 'sub-고혈압.html';
+            }
+            
+            console.log('[DEBUG] pathname:', window.location.pathname);
+            console.log('[DEBUG] href:', window.location.href);
+            console.log('[DEBUG] 페이지 제목:', pageTitle);
+            console.log('[DEBUG] 현재 페이지:', currentPage);
+            
+            // 하드코딩된 매핑 사용 (우선순위)
+            const pageToCategory = {
+                'sub-고혈압.html': ['고혈압', 'cardiovascular', '심혈관-질환'],
+                'sub-고지혈증.html': ['고지혈증', 'hyperlipidemia', 'cardiovascular', '심혈관-질환'],
+                'sub-협심증심근경색.html': ['협심증', '심근경색', 'cardiovascular', '심혈관-질환'],
+                'sub-동맥경화.html': ['동맥경화', 'cardiovascular', '심혈관-질환'],
+                'sub-뇌졸중.html': ['뇌졸중', 'stroke', 'cardiovascular', '심혈관-질환'],
+                'sub-당뇨.html': ['당뇨', 'diabetes', '당뇨병'],
+                'sub-공복혈당장애.html': ['공복혈당', 'diabetes', '당뇨병'],
+                'sub-당뇨병합병증.html': ['당뇨병합병증', 'diabetes', '당뇨병'],
+                'sub-관절염.html': ['관절염', 'musculoskeletal', '관절-근골격계-질환'],
+                'sub-퇴행성관절염.html': ['퇴행성관절염', 'musculoskeletal', '관절-근골격계-질환'],
+                'sub-허리디스크목디스크.html': ['허리디스크', '목디스크', 'musculoskeletal', '관절-근골격계-질환'],
+                'sub-골다공증.html': ['골다공증', 'musculoskeletal', '관절-근골격계-질환'],
+                'sub-오십견.html': ['오십견', 'musculoskeletal', '관절-근골격계-질환'],
+                'sub-갱년기.html': ['갱년기', 'endocrine', '호르몬-내분비-질환'],
+                'sub-갱년기증후군.html': ['갱년기', 'endocrine', '호르몬-내분비-질환'],
+                'sub-갑상선.html': ['갑상선', 'endocrine', '호르몬-내분비-질환'],
+                'sub-대사증후군.html': ['대사증후군', 'endocrine', '호르몬-내분비-질환'],
+                'sub-우울증.html': ['우울증', 'neuroscience', '정신-건강-신경계'],
+                'sub-우울증번아웃.html': ['우울증', '번아웃', 'neuroscience', '정신-건강-신경계'],
+                'sub-치매.html': ['치매', 'neuroscience', '정신-건강-신경계'],
+                'sub-치매경도인지장애.html': ['치매', '인지장애', 'neuroscience', '정신-건강-신경계'],
+                'sub-수면장애.html': ['수면장애', 'neuroscience', '정신-건강-신경계'],
+                'sub-수면장애불면증.html': ['수면장애', '불면증', 'neuroscience', '정신-건강-신경계'],
+                'sub-불안장애.html': ['불안장애', 'neuroscience', '정신-건강-신경계'],
+                'sub-위염.html': ['위염', 'digestive', '소화기-질환'],
+                'sub-위염위궤양.html': ['위염', '위궤양', 'digestive', '소화기-질환'],
+                'sub-위염역류식.html': ['위염', '역류성식도염', 'digestive', '소화기-질환'],
+                'sub-역류성식도염.html': ['역류성식도염', 'digestive', '소화기-질환'],
+                'sub-지방간.html': ['지방간', 'digestive', '소화기-질환'],
+                'sub-과민성대장증후군.html': ['과민성대장증후군', 'digestive', '소화기-질환'],
+                'sub-대장암.html': ['대장암', 'digestive', '소화기-질환'],
+                'sub-백내장.html': ['백내장', 'eyes-dental', '안과-치과-기타'],
+                'sub-녹내장.html': ['녹내장', 'eyes-dental', '안과-치과-기타'],
+                'sub-백내장녹내장.html': ['백내장', '녹내장', 'eyes-dental', '안과-치과-기타'],
+                'sub-치주질환.html': ['치주질환', 'eyes-dental', '안과-치과-기타'],
+                'sub-치주염치아손실.html': ['치주염', '치아손실', 'eyes-dental', '안과-치과-기타'],
+                'sub-이명현훈.html': ['이명', '현훈', 'eyes-dental', '안과-치과-기타'],
+                'sub-이명어지럼증.html': ['이명', '어지럼증', 'eyes-dental', '안과-치과-기타'],
+                'sub-비만.html': ['비만', 'eyes-dental', '안과-치과-기타'],
+                'sub-비만체형변화.html': ['비만', '체형변화', 'eyes-dental', '안과-치과-기타'],
+            };
+            
+            // 매핑에서 카테고리 가져오기
+            let categorySlug = pageToCategory[currentPage];
+            
+            console.log('[DEBUG] 매핑 전 categorySlug:', categorySlug);
+            
+            // 매핑에 없으면 페이지 제목으로 자동 찾기 시도
+            if (!categorySlug) {
+                try {
+                    const foundSlug = await findCategoryByPageTitle(pageTitle);
+                    if (foundSlug) {
+                        categorySlug = [foundSlug];
+                    }
+                } catch (error) {
+                    console.warn('자동 매핑 실패, 기본값 사용:', error);
+                }
+            }
+            
+            // 배열이 아니면 배열로 변환
+            if (categorySlug && !Array.isArray(categorySlug)) {
+                categorySlug = [categorySlug];
+            }
+            
+            // 여전히 없으면 페이지 제목을 카테고리로 사용
+            if (!categorySlug || categorySlug.length === 0) {
+                categorySlug = [pageTitle];
+            }
+            
+            console.log('[DEBUG] 최종 매칭된 카테고리:', categorySlug);
+            
+            loadPosts(categorySlug || [], pageTitle);
+        });'''
+        
+        # 기존 로직 교체
+        content = re.sub(pattern, new_logic, content, flags=re.DOTALL)
+        
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)
+        
+        return True
+        
+    except Exception as e:
+        print(f"  ❌ {filepath} - 오류: {e}")
+        return False
+
+def main():
+    """메인 실행"""
+    print("=" * 60)
+    print("🔧 강력한 매핑 로직 적용")
+    print("=" * 60)
+    print(f"\n📝 총 {len(SUBCATEGORY_FILES)}개 파일 처리 중...\n")
+    
+    updated_count = 0
+    
+    for filename in SUBCATEGORY_FILES:
+        if fix_mapping_logic(filename):
+            print(f"  ✅ {filename} - 수정 완료")
+            updated_count += 1
+        else:
+            print(f"  ℹ️ {filename} - 변경사항 없음")
+    
+    print(f"\n✅ 총 {updated_count}개 파일 수정 완료!")
+    print("=" * 60)
+
+if __name__ == "__main__":
+    main()
+

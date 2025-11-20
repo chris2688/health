@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9988 건강 연구소 - 중년 건강의 모든 것</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        /* ========== 헤더 스타일 ========== */
+        .main-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+        }
+        
+        /* 로고 */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-image {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 메인 메뉴 */
+        .main-nav {
+            display: flex;
+            gap: 0;
+        }
+        
+        .nav-item {
+            padding: 10px 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            position: relative;
+            border-radius: 8px;
+        }
+        
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: white;
+            transform: translateX(-50%);
+            transition: width 0.3s;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .nav-item:hover::before {
+            width: 60%;
+        }
+        
+        /* 모바일 메뉴 버튼 */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+        }
+        
+        /* 모바일 닫기 버튼 */
+        .mobile-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px 12px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+            line-height: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .mobile-close-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+        
+        /* ========== 메인 콘텐츠 ========== */
+        .hero-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .hero-heading {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 60px;
+            line-height: 1.2;
+        }
+        
+        /* ========== 카드 그리드 ========== */
+        .cards-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px 80px 20px;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .health-card {
+            position: relative;
+            padding: 45px 35px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--card-color-1) 0%, var(--card-color-2) 100%);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .health-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 50%;
+            transition: all 0.4s;
+        }
+        
+        .health-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+        
+        .health-card:hover::before {
+            transform: translate(-20%, -20%) scale(1.5);
+        }
+        
+        .card-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: white;
+            margin: 0 0 15px 0;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-description {
+            font-size: 16px;
+            color: rgba(255,255,255,0.95);
+            margin: 0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+        
+        /* ========== 푸터 ========== */
+        .main-footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: rgba(255,255,255,0.8);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        /* ========== 반응형 ========== */
+        @media (max-width: 768px) {
+            .header-content {
+                min-height: 70px;
+            }
+            
+            .logo-image {
+                height: 40px;
+            }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                z-index: 1000;
+            }
+            
+            .main-nav.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                padding: 15px 20px;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav.active .mobile-close-btn {
+                display: block;
+            }
+            
+            .hero-heading {
+                font-size: 32px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index-v3.html" class="logo-container">
+                <img src="https://health9988234.mycafe24.com/wp-content/uploads/2025/11/cropped-1-1.png" 
+                     alt="9988 건강 연구소" 
+                     class="logo-image">
+            </a>
+            
+            <nav class="main-nav" id="mainNav">
+                <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
+                <a href="index-v3.html" class="nav-item">질환별 정보</a>
+                <a href="food-main.html" class="nav-item">식단/음식</a>
+                <a href="exercise-main.html" class="nav-item">운동/활동</a>
+                <a href="lifestyle-main.html" class="nav-item">생활습관</a>
+                <a href="news-main.html" class="nav-item">건강News</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero-section">
+        <p class="hero-title">9988 건강 연구소 핵심 가이드</p>
+        <h1 class="hero-heading">중년 건강의 모든 것,<br>분야별로 찾아보세요</h1>
+        
+        <!-- 카드 그리드 -->
+        <div class="cards-container">
+            <div class="cards-grid">
+                <a href="category-cardiovascular.html" class="health-card" style="--card-color-1:#FF6B6B; --card-color-2:#EE5A6F;">
+                    <div class="card-icon">❤️</div>
+                    <h2 class="card-title">심혈관 질환</h2>
+                    <p class="card-description">고혈압, 심근경색, 동맥경화</p>
+                </a>
+                
+                <a href="category-diabetes.html" class="health-card" style="--card-color-1:#4ECDC4; --card-color-2:#44A08D;">
+                    <div class="card-icon">💉</div>
+                    <h2 class="card-title">당뇨병</h2>
+                    <p class="card-description">혈당관리, 공복혈당, 합병증</p>
+                </a>
+                
+                <a href="category-musculoskeletal.html" class="health-card" style="--card-color-1:#A18CD1; --card-color-2:#FBC2EB;">
+                    <div class="card-icon">🦴</div>
+                    <h2 class="card-title">관절/근골격계</h2>
+                    <p class="card-description">관절염, 허리디스크, 골다공증</p>
+                </a>
+                
+                <a href="category-endocrine.html" class="health-card" style="--card-color-1:#FA709A; --card-color-2:#FEE140;">
+                    <div class="card-icon">🌡️</div>
+                    <h2 class="card-title">호르몬/내분비</h2>
+                    <p class="card-description">갱년기, 갑상선, 대사증후군</p>
+                </a>
+                
+                <a href="category-neuroscience.html" class="health-card" style="--card-color-1:#667eea; --card-color-2:#764ba2;">
+                    <div class="card-icon">🧠</div>
+                    <h2 class="card-title">정신건강/신경계</h2>
+                    <p class="card-description">우울증, 치매, 수면장애</p>
+                </a>
+                
+                <a href="category-digestive.html" class="health-card" style="--card-color-1:#f093fb; --card-color-2:#f5576c;">
+                    <div class="card-icon">🍽️</div>
+                    <h2 class="card-title">소화기 질환</h2>
+                    <p class="card-description">위염, 지방간, 역류성 식도염</p>
+                </a>
+                
+                <a href="category-others.html" class="health-card" style="--card-color-1:#4facfe; --card-color-2:#00f2fe;">
+                    <div class="card-icon">👁️</div>
+                    <h2 class="card-title">안과/치과/기타</h2>
+                    <p class="card-description">백내장, 녹내장, 치주질환</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2025 9988 건강 연구소 - 중년 건강의 모든 것<br>
+                건강한 99세까지, 88하게 살아가는 방법
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 모바일 메뉴 토글
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+        
+        // 카드 클릭 애니메이션
+        document.querySelectorAll('.health-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+        
+        // X 버튼 클릭
+        document.getElementById('mobileCloseBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.remove('active');
+        });
+    </script>
+</body>
+</html>

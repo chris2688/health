@@ -1,0 +1,64 @@
+<!-- 메인 화면 JavaScript (외모 > 테마 편집기 > footer.php 맨 하단 </body> 바로 위에 붙여넣기) -->
+<script>
+(function() {
+    // jQuery가 로드될 때까지 기다림
+    function waitForJQuery(callback) {
+        if (typeof jQuery !== 'undefined') {
+            callback(jQuery);
+        } else {
+            setTimeout(function() { waitForJQuery(callback); }, 100);
+        }
+    }
+    
+    waitForJQuery(function($) {
+        if ($('body').hasClass('home') || $('body').hasClass('blog')) {
+            var mainHTML = '<div class="health-main-wrapper">' +
+                '<div class="health-main-title">' +
+                '<p class="health-main-subtitle">9988 건강 연구소 핵심 가이드</p>' +
+                '<h2 class="health-main-heading">중년 건강의 모든 것, 분야별로 찾아보세요</h2>' +
+                '</div>' +
+                '<div class="health-main-grid">' +
+                '<a href="https://health9988234.mycafe24.com/category/질환별-정보/심혈관-질환/" class="health-main-card" style="--card-color-1:#FF6B6B; --card-color-2:#EE5A6F;">' +
+                '<div class="health-main-card-icon">❤️</div>' +
+                '<h3>심혈관 질환</h3>' +
+                '<p>고혈압, 심근경색, 동맥경화</p>' +
+                '</a>' +
+                '<a href="https://health9988234.mycafe24.com/category/질환별-정보/당뇨병/" class="health-main-card" style="--card-color-1:#4ECDC4; --card-color-2:#44A08D;">' +
+                '<div class="health-main-card-icon">💉</div>' +
+                '<h3>당뇨병</h3>' +
+                '<p>혈당관리, 공복혈당, 합병증</p>' +
+                '</a>' +
+                '<a href="https://health9988234.mycafe24.com/category/질환별-정보/관절-근골격계-질환/" class="health-main-card" style="--card-color-1:#A18CD1; --card-color-2:#FBC2EB;">' +
+                '<div class="health-main-card-icon">🦴</div>' +
+                '<h3>관절/근골격계 질환</h3>' +
+                '<p>관절염, 허리디스크, 골다공증</p>' +
+                '</a>' +
+                '<a href="https://health9988234.mycafe24.com/category/질환별-정보/호르몬-내분비-질환/" class="health-main-card" style="--card-color-1:#FA709A; --card-color-2:#FEE140;">' +
+                '<div class="health-main-card-icon">🌡️</div>' +
+                '<h3>호르몬/내분비 질환</h3>' +
+                '<p>갱년기, 갑상선, 대사증후군</p>' +
+                '</a>' +
+                '<a href="https://health9988234.mycafe24.com/category/질환별-정보/정신-건강-신경계/" class="health-main-card" style="--card-color-1:#667eea; --card-color-2:#764ba2;">' +
+                '<div class="health-main-card-icon">🧠</div>' +
+                '<h3>정신 건강/신경계</h3>' +
+                '<p>우울증, 치매, 수면장애</p>' +
+                '</a>' +
+                '<a href="https://health9988234.mycafe24.com/category/질환별-정보/소화기-질환/" class="health-main-card" style="--card-color-1:#f093fb; --card-color-2:#f5576c;">' +
+                '<div class="health-main-card-icon">🍽️</div>' +
+                '<h3>소화기 질환</h3>' +
+                '<p>위염, 지방간, 역류성 식도염</p>' +
+                '</a>' +
+                '<a href="https://health9988234.mycafe24.com/category/질환별-정보/안과-치과-기타/" class="health-main-card" style="--card-color-1:#4facfe; --card-color-2:#00f2fe;">' +
+                '<div class="health-main-card-icon">👁️</div>' +
+                '<h3>안과/치과/기타</h3>' +
+                '<p>백내장, 녹내장, 치주질환</p>' +
+                '</a>' +
+                '</div>' +
+                '</div>';
+            
+            $('.site-main').prepend(mainHTML);
+        }
+    });
+})();
+</script>
+

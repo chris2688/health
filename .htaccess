@@ -1,0 +1,54 @@
+# WordPress 기본 설정 유지
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+
+# 커스텀 HTML 페이지 설정
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 메인 도메인 → index-v3.html로 리디렉션
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /index-v3.html [L]
+
+# index-v2.html 접근 시 index-v3.html로 리디렉션
+RewriteRule ^index-v2\.html$ /index-v3.html [R=301,L]
+
+# HTML 파일 직접 접근 허용
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} \.html$
+RewriteRule .* - [L]
+
+# WordPress REST API 및 관리자 페이지 접근 허용
+RewriteCond %{REQUEST_URI} ^/wp-json/ [OR]
+RewriteCond %{REQUEST_URI} ^/wp-admin/ [OR]
+RewriteCond %{REQUEST_URI} ^/wp-login\.php [OR]
+RewriteCond %{REQUEST_URI} ^/wp-content/
+RewriteRule .* - [L]
+</IfModule>
+
+# CORS 설정 (REST API용)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# UTF-8 인코딩 설정
+AddDefaultCharset UTF-8
+
+# 캐시 설정
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+</IfModule>

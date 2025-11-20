@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관절/근골격계 질환 - 9988 건강정보</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+        
+        /* ========== 헤더 스타일 ========== */
+        .main-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-image {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 0;
+        }
+        
+        .nav-item {
+            padding: 10px 24px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            position: relative;
+            border-radius: 8px;
+        }
+        
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: white;
+            transform: translateX(-50%);
+            transition: width 0.3s;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .nav-item:hover::before {
+            width: 60%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+        }
+        
+        .mobile-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px 12px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+            line-height: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .mobile-close-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+        
+                        
+        
+                
+        
+        /* ========== 콘텐츠 영역 ========== */
+        .health-card-container {
+            padding: 20px 0 0 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: calc(100vh - 80px);
+        }
+        
+        .container-content {
+            padding: 0 20px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .main-icon {
+            font-size: 72px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 0 15px 0;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .health-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .health-card {
+            position: relative;
+            padding: 45px 35px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--card-color-1) 0%, var(--card-color-2) 100%);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .health-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+        
+        .health-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(40%, -40%);
+        }
+        
+        .health-card-icon {
+            font-size: 56px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            position: relative;
+            z-index: 1;
+        }
+        
+        .health-card h3 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ========== 반응형 ========== */
+        @media (max-width: 768px) {
+            .header-content {
+                min-height: 70px;
+            }
+            
+            .logo-image {
+                height: 40px;
+            }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                z-index: 1000;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease-out;
+            }
+            
+            .main-nav.active {
+                display: flex;
+                max-height: 500px;
+            }
+            
+            .nav-item {
+                padding: 15px 20px;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav.active .mobile-close-btn {
+                display: block;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .health-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            Ppx;
+            }
+        }
+
+        
+        
+        
+        
+        
+    
+        
+                
+                
+                
+                
+    
+
+        
+        
+        
+        
+        
+    
+
+        .back-button {
+            display: inline-block;
+            margin: 30px 0 30px 0;
+            padding: 12px 24px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .back-button::before {
+            content: '← ';
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index-v3.html" class="logo-container">
+                <img src="https://health9988234.mycafe24.com/wp-content/uploads/2025/11/cropped-1-1.png" 
+                     alt="9988 건강 연구소" 
+                     class="logo-image">
+            </a>
+            
+            <nav class="main-nav" id="mainNav">
+                <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
+                <a href="index-v3.html" class="nav-item">질환별 정보</a>
+                <a href="food-main.html" class="nav-item">식단/음식</a>
+                <a href="exercise-main.html" class="nav-item">운동/활동</a>
+                <a href="lifestyle-main.html" class="nav-item">생활습관</a>
+                <a href="news-main.html" class="nav-item">건강News</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </header>
+
+    <div class="health-card-container">
+        <div class="container-content">
+            <a href="index-v3.html" class="back-button">뒤로가기</a>
+
+            <div class="section-title">
+                <div class="main-icon">🦴</div>
+                <h2>관절/근골격계 질환</h2>
+                <p class="subtitle">관심있는 주제를 선택하세요</p>
+            </div>
+
+            <div class="health-cards-grid">
+<a href="sub-퇴행성관절염.html" class="health-card" style="--card-color-1:#FF6B6B; --card-color-2:#EE5A6F;">
+                    <div class="health-card-icon">🦵</div>
+                    <h3>퇴행성 관절염</h3>
+                </a>
+                
+                <a href="sub-허리디스크목디스크.html" class="health-card" style="--card-color-1:#4ECDC4; --card-color-2:#44A08D;">
+                    <div class="health-card-icon">🦴</div>
+                    <h3>허리디스크/목디스크</h3>
+                </a>
+                
+                <a href="sub-골다공증.html" class="health-card" style="--card-color-1:#A18CD1; --card-color-2:#FBC2EB;">
+                    <div class="health-card-icon">🦴</div>
+                    <h3>골다공증</h3>
+                </a>
+                
+                <a href="sub-오십견.html" class="health-card" style="--card-color-1:#FA709A; --card-color-2:#FEE140;">
+                    <div class="health-card-icon">💪</div>
+                    <h3>오십견<br>(유착성 관절낭염)</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                });
+            }
+            
+            if (mobileCloseBtn && mainNav) {
+                mobileCloseBtn.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

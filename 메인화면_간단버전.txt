@@ -1,0 +1,120 @@
+<!-- 메인 화면 코드 (외모 > 사용자 정의하기 > 추가 CSS 하단에 붙여넣기) -->
+
+/* === 메인 화면 스타일 === */
+body.home .site-main, body.blog .site-main { 
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important; 
+    padding: 60px 20px !important; 
+    min-height: 80vh !important; 
+}
+
+body.home .site-main > *:not(.health-main-wrapper), 
+body.blog .site-main > *:not(.health-main-wrapper) { 
+    display: none !important; 
+}
+
+.health-main-wrapper { max-width: 1400px; margin: 0 auto; }
+.health-main-title { text-align: center; margin-bottom: 50px; }
+.health-main-subtitle { 
+    font-size: 16px; font-weight: 600; color: #4A90E2; 
+    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; 
+}
+.health-main-heading { 
+    font-size: 42px; font-weight: 800; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+    background-clip: text; margin: 0; 
+}
+.health-main-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    padding: 0 20px; 
+}
+.health-main-card { 
+    position: relative; 
+    padding: 40px 30px; 
+    border-radius: 24px; 
+    background: linear-gradient(135deg, var(--card-color-1) 0%, var(--card-color-2) 100%); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    cursor: pointer; 
+    overflow: hidden; 
+    min-height: 220px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    text-decoration: none; 
+}
+.health-main-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25); 
+}
+.health-main-card::before { 
+    content: ''; position: absolute; top: 0; right: 0; 
+    width: 150px; height: 150px; 
+    background: rgba(255,255,255,0.1); 
+    border-radius: 50%; 
+    transform: translate(50%, -50%); 
+}
+.health-main-card-icon { 
+    font-size: 48px; margin-bottom: 20px; 
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
+    position: relative; z-index: 1; 
+}
+.health-main-card h3 { 
+    font-size: 24px; font-weight: 700; color: #ffffff; 
+    margin: 0 0 12px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    position: relative; z-index: 1; 
+}
+.health-main-card p { 
+    font-size: 15px; color: rgba(255,255,255,0.9); 
+    margin: 0; line-height: 1.6; 
+    position: relative; z-index: 1; 
+}
+@media (max-width: 768px) { 
+    .health-main-grid { grid-template-columns: 1fr; gap: 20px; } 
+    .health-main-heading { font-size: 32px; } 
+}
+
+/* === 카테고리 페이지 2열 레이아웃 === */
+body.archive .site-main .content,
+body.category .site-main .content,
+body.archive .entries,
+body.category .entries,
+body.archive main > div,
+body.category main > div {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 25px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.post-thumbnail,
+.entry-image,
+.entry-image-link,
+article .entry-image,
+article .post-thumbnail {
+    position: relative !important;
+    width: 100% !important;
+    height: 0 !important;
+    padding-top: 100% !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    margin: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+}
+
+.post-thumbnail img,
+.entry-image img,
+.entry-image-link img,
+article .entry-image img,
+article .post-thumbnail img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+

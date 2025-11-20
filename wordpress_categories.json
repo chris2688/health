@@ -1,0 +1,986 @@
+[
+  {
+    "id": 1,
+    "count": 0,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/uncategorized/",
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/1",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=1"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "count": 2,
+    "description": "최신 건강 이슈",
+    "link": "https://health9988234.mycafe24.com/category/health-news/",
+    "name": "건강News",
+    "slug": "health-news",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/7",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=7"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "count": 4,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/musculoskeletal/",
+    "name": "관절/근골격계 질환",
+    "slug": "musculoskeletal",
+    "taxonomy": "category",
+    "parent": 3,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/11",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=11"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "count": 3,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/diabetes/",
+    "name": "당뇨병",
+    "slug": "diabetes",
+    "taxonomy": "category",
+    "parent": 3,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/10",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=10"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "count": 0,
+    "description": "잘못된 상식으로 섭취 시 건강에 악영향을 미치는 정보",
+    "link": "https://health9988234.mycafe24.com/category/diet-food/toxic-foods/",
+    "name": "모르면 독이 된다",
+    "slug": "toxic-foods",
+    "taxonomy": "category",
+    "parent": 4,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/18",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/4"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=18"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "count": 0,
+    "description": "중년 건강을 위한 수면, 금주, 금연 등 전반적인 습관 개선 정보",
+    "link": "https://health9988234.mycafe24.com/category/lifestyle/lifestyle-basics/",
+    "name": "생활습관",
+    "slug": "lifestyle-basics",
+    "taxonomy": "category",
+    "parent": 6,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/21",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/6"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=21"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "count": 28,
+    "description": "수면, 습관 교정",
+    "link": "https://health9988234.mycafe24.com/category/lifestyle/",
+    "name": "생활습관",
+    "slug": "lifestyle",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/6",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=6"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "count": 0,
+    "description": "나쁜 습관을 좋은 습관으로 전환하는 구체적인 실천 방법 및 동기 부여",
+    "link": "https://health9988234.mycafe24.com/category/lifestyle/lifestyle-tips/",
+    "name": "생활습관 바꾸기 팁",
+    "slug": "lifestyle-tips",
+    "taxonomy": "category",
+    "parent": 6,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/22",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/6"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=22"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "count": 4,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/digestive/",
+    "name": "소화기 질환",
+    "slug": "digestive",
+    "taxonomy": "category",
+    "parent": 3,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/14",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=14"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "count": 35,
+    "description": "건강 식단, 영양소",
+    "link": "https://health9988234.mycafe24.com/category/diet-food/",
+    "name": "식단/음식",
+    "slug": "diet-food",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/4",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=4"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "count": 5,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/cardiovascular/",
+    "name": "심혈관 질환",
+    "slug": "cardiovascular",
+    "taxonomy": "category",
+    "parent": 3,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/9",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=9"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "count": 3,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/eyes-dental/",
+    "name": "안과/치과/기타",
+    "slug": "eyes-dental",
+    "taxonomy": "category",
+    "parent": 3,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/15",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=15"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "count": 0,
+    "description": "운동 전후 스트레칭, 부상 방지, 효율적인 운동 시간 등 실용적인 조언",
+    "link": "https://health9988234.mycafe24.com/category/exercise/exercise-tips/",
+    "name": "운동 팁!",
+    "slug": "exercise-tips",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/20",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=20"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "count": 33,
+    "description": "운동 방법, 스트레칭",
+    "link": "https://health9988234.mycafe24.com/category/exercise/",
+    "name": "운동/활동",
+    "slug": "exercise",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/5",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=5"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "count": 4,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/neuroscience/",
+    "name": "정신 건강/신경계",
+    "slug": "neuroscience",
+    "taxonomy": "category",
+    "parent": 3,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/13",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=13"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "count": 0,
+    "description": "고혈압, 당뇨 등 각 질환에 맞춰 섭취해야 할 식단 정보",
+    "link": "https://health9988234.mycafe24.com/category/diet-food/diet-by-disease/",
+    "name": "질환별 식단",
+    "slug": "diet-by-disease",
+    "taxonomy": "category",
+    "parent": 4,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/16",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/4"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=16"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "count": 0,
+    "description": "당뇨병 환자, 관절염 환자 등 특정 질환에 적합한 맞춤 운동법",
+    "link": "https://health9988234.mycafe24.com/category/exercise/exercise-by-disease/",
+    "name": "질환별 운동 가이드",
+    "slug": "exercise-by-disease",
+    "taxonomy": "category",
+    "parent": 5,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/19",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/5"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=19"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "count": 26,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/",
+    "name": "질환별 정보",
+    "slug": "disease-info",
+    "taxonomy": "category",
+    "parent": 0,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=3"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "count": 0,
+    "description": "건강을 위해 중년층이 반드시 피해야 할 특정 음식 및 재료",
+    "link": "https://health9988234.mycafe24.com/category/diet-food/forbidden-fruits/",
+    "name": "피해야 할 과일",
+    "slug": "forbidden-fruits",
+    "taxonomy": "category",
+    "parent": 4,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/17",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/4"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=17"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "count": 3,
+    "description": "",
+    "link": "https://health9988234.mycafe24.com/category/disease-info/endocrine/",
+    "name": "호르몬/내분비 질환",
+    "slug": "endocrine",
+    "taxonomy": "category",
+    "parent": 3,
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/12",
+          "targetHints": {
+            "allow": [
+              "GET"
+            ]
+          }
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/taxonomies/category"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/categories/3"
+        }
+      ],
+      "wp:post_type": [
+        {
+          "href": "https://health9988234.mycafe24.com/wp-json/wp/v2/posts?categories=12"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

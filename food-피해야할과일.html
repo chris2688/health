@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>피해야 할 과일 - 9988 건강정보</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+        
+
+        body {
+
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", sans-serif;
+
+            background: #f5f7fa;
+
+            min-height: 100vh;
+
+        }
+
+        
+
+        /* ========== 헤더 스타일 ========== */
+
+        .main-header {
+
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+        
+
+        .header-content {
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            min-height: 80px;
+
+        }
+
+        
+
+        .logo-container {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            text-decoration: none;
+
+            transition: transform 0.3s;
+
+        }
+
+        
+
+        .logo-container:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        
+
+        .logo-image {
+
+            height: 50px;
+
+            width: auto;
+
+            border-radius: 8px;
+
+            background: white;
+
+            padding: 5px;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        }
+
+        
+
+        .main-nav {
+
+            display: flex;
+
+            gap: 0;
+
+        }
+
+        
+
+        .nav-item {
+
+            padding: 10px 24px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            font-size: 16px;
+
+            transition: all 0.3s;
+
+            position: relative;
+
+            border-radius: 8px;
+
+        }
+
+        
+
+        .nav-item::before {
+
+            content: '';
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 50%;
+
+            width: 0;
+
+            height: 3px;
+
+            background: white;
+
+            transform: translateX(-50%);
+
+            transition: width 0.3s;
+
+        }
+
+        
+
+        .nav-item:hover {
+
+            background: rgba(255,255,255,0.15);
+
+        }
+
+        
+
+        .nav-item:hover::before {
+
+            width: 60%;
+
+        }
+
+        /* 모바일 메뉴 버튼 */
+
+        .mobile-menu-btn {
+
+            display: none;
+
+            background: none;
+
+            border: none;
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+            padding: 10px;
+
+            transition: all 0.3s;
+
+        }
+
+        
+
+        .mobile-menu-btn:hover {
+
+            background: rgba(255,255,255,0.15);
+
+            border-radius: 8px;
+
+        }
+
+        
+
+        /* 모바일 닫기 버튼 */
+        .mobile-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px 12px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1001;
+            line-height: 1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .mobile-close-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+            
+
+            .main-nav.active 
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        .main-nav.active 
+
+        
+
+        
+
+        
+
+        
+
+        }
+
+        }
+
+        
+
+        
+
+        
+
+                        
+        
+                
+        
+        /* ========== 콘텐츠 영역 ========== */
+
+        .health-card-container {
+
+            padding: 20px 0 0 0;
+
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+            min-height: calc(100vh - 80px);
+
+        }
+
+        
+
+        .container-content {
+
+            padding: 0 20px 60px;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+        }
+
+        
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+        
+
+        .main-icon {
+
+            font-size: 72px;
+
+            margin-bottom: 15px;
+
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+
+        }
+
+        
+
+        .section-title h2 {
+
+            font-size: 42px;
+
+            font-weight: 800;
+
+            background: linear-gradient(135deg, #FA709A 0%, #FEE140 100%);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            background-clip: text;
+
+            margin: 0 0 15px 0;
+
+        }
+
+        
+
+        .subtitle {
+
+            font-size: 18px;
+
+            color: #666;
+
+            font-weight: 500;
+
+        }
+
+        
+
+        .health-cards-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+        }
+
+        
+
+        .health-card {
+
+            position: relative;
+
+            padding: 45px 35px;
+
+            border-radius: 24px;
+
+            background: linear-gradient(135deg, var(--card-color-1) 0%, var(--card-color-2) 100%);
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            min-height: 240px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            text-decoration: none;
+
+        }
+
+        
+
+        .health-card:hover {
+
+            transform: translateY(-8px) scale(1.02);
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+
+        }
+
+        
+
+        .health-card::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            right: 0;
+
+            width: 120px;
+
+            height: 120px;
+
+            background: rgba(255,255,255,0.1);
+
+            border-radius: 50%;
+
+            transform: translate(40%, -40%);
+
+        }
+
+        
+
+        .health-card-icon {
+
+            font-size: 56px;
+
+            margin-bottom: 20px;
+
+            margin-bottom: 15px;
+
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+        
+
+        .health-card h3 {
+
+            font-size: 26px;
+
+            font-weight: 700;
+
+            color: #ffffff;
+
+            margin: 0;
+
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+        
+
+        .health-card p {
+
+            font-size: 14px;
+
+            color: rgba(255,255,255,0.9);
+
+            margin-top: 8px;
+
+            line-height: 1.4;
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+        
+
+        @media (max-width: 768px) {
+
+            .header-content {
+
+                min-height: 70px;
+
+            }
+
+            
+
+            .logo-image {
+
+                height: 40px;
+
+            }
+
+            
+
+            .main-nav {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                right: 0;
+
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+                flex-direction: column;
+
+                padding: 20px;
+
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+
+            }
+
+            
+
+            .main-nav.active {
+
+                display: flex;
+
+            }
+
+            
+
+            .nav-item {
+                padding: 15px 20px;
+                text-align: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav.active .mobile-close-btn {
+                display: block;
+            }
+
+            
+
+            
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+            
+
+            .main-nav.active 
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        .main-nav.active 
+
+        
+
+        
+
+        
+
+        
+
+        }
+
+        }
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+
+        }
+
+            
+
+    
+
+        
+        
+        
+        
+        
+    
+        
+                
+                
+                
+                
+    
+
+        
+        
+        
+        
+        
+    
+
+        .back-button {
+            display: inline-block;
+            margin: 30px 0 30px 0;
+            padding: 12px 24px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .back-button::before {
+            content: '← ';
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+        <!-- 헤더 -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index-v3.html" class="logo-container">
+                <img src="https://health9988234.mycafe24.com/wp-content/uploads/2025/11/cropped-1-1.png" 
+                     alt="9988 건강 연구소" 
+                     class="logo-image">
+            </a>
+            
+            <nav class="main-nav" id="mainNav">
+                <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
+                <a href="index-v3.html" class="nav-item">질환별 정보</a>
+                <a href="food-main.html" class="nav-item">식단/음식</a>
+                <a href="exercise-main.html" class="nav-item">운동/활동</a>
+                <a href="lifestyle-main.html" class="nav-item">생활습관</a>
+                <a href="news-main.html" class="nav-item">건강News</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </header>
+
+    <div class="health-card-container">
+
+        <div class="container-content">
+
+            <a href="food-main.html" class="back-button">뒤로가기</a>
+
+            <div class="section-title">
+
+            <div class="main-icon">🍎</div>
+
+            <h2>피해야 할 과일</h2>
+
+            <p class="subtitle">질환별로 주의해야 할 과일 정보</p>
+
+        </div>
+
+        
+
+        <div class="health-cards-grid">
+
+            <a href="#" class="health-card" style="--card-color-1:#FF6B6B; --card-color-2:#EE5A6F;">
+
+                <div class="health-card-icon">🩺</div>
+
+                <h3>고혈압</h3>
+
+                <p>피해야 할 과일 3가지 (의외의 1등은?)</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#4ECDC4; --card-color-2:#44A08D;">
+
+                <div class="health-card-icon">💉</div>
+
+                <h3>당뇨</h3>
+
+                <p>이 과일은 꼭 피하세요. 혈당이 확 오릅니다.</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#A18CD1; --card-color-2:#FBC2EB;">
+
+                <div class="health-card-icon">💊</div>
+
+                <h3>고지혈증(콜레스테롤)</h3>
+
+                <p>콜레스테롤 높은 분들, 이 과일은 피하셔야 합니다.</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#FA709A; --card-color-2:#FEE140;">
+
+                <div class="health-card-icon">🫀</div>
+
+                <h3>지방간</h3>
+
+                <p>간에 독이 되는 과일? 달콤하지만 위험한 선택</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#667eea; --card-color-2:#764ba2;">
+
+                <div class="health-card-icon">🔥</div>
+
+                <h3>위염/역류성 식도염</h3>
+
+                <p>위염 있으세요? 속 쓰리게 만드는 과일 3가지</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#f093fb; --card-color-2:#f5576c;">
+
+                <div class="health-card-icon">🦴</div>
+
+                <h3>골다공증</h3>
+
+                <p>뼈 건강에 안 좋은 과일이 있다고요? 꼭 피하세요!</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#4facfe; --card-color-2:#00f2fe;">
+
+                <div class="health-card-icon">🌸</div>
+
+                <h3>갱년기</h3>
+
+                <p>갱년기 증상 더 악화시키는 과일, 의외로 자주 먹는 이것!</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#43e97b; --card-color-2:#38f9d7;">
+
+                <div class="health-card-icon">😔</div>
+
+                <h3>우울증</h3>
+
+                <p>기분 더 가라앉게 만드는 과일? 우울증에 안 좋은 과일 리스트</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#fa709a; --card-color-2:#fee140;">
+
+                <div class="health-card-icon">😴</div>
+
+                <h3>수면장애</h3>
+
+                <p>잠 안 올 때 피해야 할 과일, 숙면을 방해합니다</p>
+
+            </a>
+
+            
+
+            <a href="#" class="health-card" style="--card-color-1:#30cfd0; --card-color-2:#330867;">
+
+                <div class="health-card-icon">💔</div>
+
+                <h3>협심증/심근경색</h3>
+
+                <p>심장 건강에 해로운 과일? 협심증 환자 주의!</p>
+
+            </a>
+
+            
+
+        </div>
+
+    </div>
+
+    <script>
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+
+            document.getElementById('mainNav').classList.toggle('active');
+
+        });
+
+    
+
+        document.getElementById('mobileCloseBtn').addEventListener('click', function() {
+
+            document.getElementById('mainNav').classList.remove('active');
+
+        });
+
+</script>
+
+    
+
+    <script>
+
+        // 워드프레스 글과 카드 매칭
+
+        async function matchFoodPosts() {
+
+            const items = [
+
+  {
+
+    "title": "고혈압",
+
+    "keywords": [
+
+      "고혈압",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "피해야 할 과일 3가지 (의외의 1등은?)"
+
+  },
+
+  {
+
+    "title": "당뇨",
+
+    "keywords": [
+
+      "당뇨",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "이 과일은 꼭 피하세요. 혈당이 확 오릅니다."
+
+  },
+
+  {
+
+    "title": "고지혈증(콜레스테롤)",
+
+    "keywords": [
+
+      "고지혈증",
+
+      "콜레스테롤",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "콜레스테롤 높은 분들, 이 과일은 피하셔야 합니다."
+
+  },
+
+  {
+
+    "title": "지방간",
+
+    "keywords": [
+
+      "지방간",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "간에 독이 되는 과일? 달콤하지만 위험한 선택"
+
+  },
+
+  {
+
+    "title": "위염/역류성 식도염",
+
+    "keywords": [
+
+      "위염",
+
+      "역류성",
+
+      "식도염",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "위염 있으세요? 속 쓰리게 만드는 과일 3가지"
+
+  },
+
+  {
+
+    "title": "골다공증",
+
+    "keywords": [
+
+      "골다공증",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "뼈 건강에 안 좋은 과일이 있다고요? 꼭 피하세요!"
+
+  },
+
+  {
+
+    "title": "갱년기",
+
+    "keywords": [
+
+      "갱년기",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "갱년기 증상 더 악화시키는 과일, 의외로 자주 먹는 이것!"
+
+  },
+
+  {
+
+    "title": "우울증",
+
+    "keywords": [
+
+      "우울증",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "기분 더 가라앉게 만드는 과일? 우울증에 안 좋은 과일 리스트"
+
+  },
+
+  {
+
+    "title": "수면장애",
+
+    "keywords": [
+
+      "수면장애",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "잠 안 올 때 피해야 할 과일, 숙면을 방해합니다"
+
+  },
+
+  {
+
+    "title": "협심증/심근경색",
+
+    "keywords": [
+
+      "협심증",
+
+      "심근경색",
+
+      "피해야",
+
+      "과일"
+
+    ],
+
+    "subtitle": "심장 건강에 해로운 과일? 협심증 환자 주의!"
+
+  }
+
+];
+
+            const cards = document.querySelectorAll('.health-card');
+
+            
+
+            try {
+
+                // 식단/음식 카테고리 글 가져오기 (여러 카테고리 시도)
+
+                const categorySlugs = ['식단-음식', '식단음식', '식단/음식', '식단', '음식'];
+
+                let categoryId = null;
+
+                
+
+                for (const slug of categorySlugs) {
+
+                    try {
+
+                        const catResponse = await fetch(`https://health9988234.mycafe24.com/wp-json/wp/v2/categories?slug=${encodeURIComponent(slug)}`);
+
+                        const categories = await catResponse.json();
+
+                        if (categories.length > 0) {
+
+                            categoryId = categories[0].id;
+
+                            console.log(`✅ 카테고리 찾음: ${slug} (ID: ${categoryId})`);
+
+                            break;
+
+                        }
+
+                    } catch (e) {
+
+                        console.warn(`카테고리 찾기 실패: ${slug}`, e);
+
+                    }
+
+                }
+
+                
+
+                // 카테고리를 찾지 못했으면 모든 글 가져오기
+
+                let apiUrl = 'https://health9988234.mycafe24.com/wp-json/wp/v2/posts?per_page=100&_embed';
+
+                if (categoryId) {
+
+                    apiUrl += `&categories=${categoryId}`;
+
+                    console.log(`카테고리 ID로 필터링: ${categoryId}`);
+
+                } else {
+
+                    console.warn('⚠️ 카테고리를 찾지 못했습니다. 모든 글을 가져옵니다.');
+
+                }
+
+                
+
+                console.log('Fetching posts from:', apiUrl);
+
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+
+                    throw new Error(`HTTP error! status: ${response.status}`);
+
+                }
+
+                const posts = await response.json();
+
+                
+
+                console.log(`✅ 가져온 글 수: ${posts.length}`);
+
+                if (posts.length > 0) {
+
+                    console.log('📝 글 제목 목록:');
+
+                    posts.forEach((post, idx) => {
+
+                        console.log(`  ${idx + 1}. ${post.title.rendered}`);
+
+                    });
+
+                } else {
+
+                    console.warn('⚠️ 가져온 글이 없습니다!');
+
+                }
+
+                
+
+                // 문자열 유사도 계산 함수
+
+                function calculateSimilarity(str1, str2) {
+
+                    const s1 = str1.toLowerCase().replace(/[\s\/\-\(\)]/g, '');
+
+                    const s2 = str2.toLowerCase().replace(/[\s\/\-\(\)]/g, '');
+
+                    if (s1 === s2) return 1.0;
+
+                    if (s1.includes(s2) || s2.includes(s1)) return 0.8;
+
+                    
+
+                    // 공통 문자 비율 계산
+
+                    const longer = s1.length > s2.length ? s1 : s2;
+
+                    const shorter = s1.length > s2.length ? s2 : s1;
+
+                    let matches = 0;
+
+                    for (let i = 0; i < shorter.length; i++) {
+
+                        if (longer.includes(shorter[i])) matches++;
+
+                    }
+
+                    return matches / longer.length;
+
+                }
+
+                
+
+                // 각 카드에 매칭 (1:1 매칭을 위해 사용된 글 추적)
+
+                const usedPostIds = new Set(); // 이미 매칭된 글 제외 (전체 공유)
+
+                
+
+                cards.forEach((card, index) => {
+
+                    if (index >= items.length) return;
+
+                    
+
+                    const item = items[index];
+
+                    const cardTitle = item.title;
+
+                    const keywords = item.keywords || [];
+
+                    const cardTitleLower = cardTitle.toLowerCase();
+
+                    
+
+                    // 카드 제목에서 주요 키워드 추출 (예: "고혈압 피해야 할 과일" -> ["고혈압"])
+
+                    const cardTitleWords = cardTitleLower.split(/[\s\/\-\(\)]/).filter(w => w.length > 1);
+
+                    const mainKeywords = keywords.filter(k => k !== '식단' && k !== '피해야' && k !== '과일'); // 보조 키워드 제외
+
+                    
+
+                    // 가장 유사한 글 찾기
+
+                    let bestMatch = null;
+
+                    let bestScore = 0;
+
+                    
+
+                    posts.forEach(post => {
+
+                        if (usedPostIds.has(post.id)) return; // 이미 매칭된 글은 제외
+
+                        
+
+                        const postTitle = post.title.rendered;
+
+                        const postTitleLower = postTitle.toLowerCase();
+
+                        let score = 0;
+
+                        
+
+                        // 1. 카드 제목 전체가 글 제목에 포함 (최고 점수)
+
+                        const cardTitleNoSpace = cardTitleLower.replace(/[\s\/\-\(\)]/g, '');
+
+                        const postTitleNoSpace = postTitleLower.replace(/[\s\/\-\(\)]/g, '');
+
+                        if (postTitleNoSpace.includes(cardTitleNoSpace) || cardTitleNoSpace.includes(postTitleNoSpace)) {
+
+                            score += 200; // 최고 점수
+
+                        }
+
+                        
+
+                        // 2. 주요 키워드가 모두 포함된 경우 (예: "고혈압"과 "과일" 모두)
+
+                        let allMainKeywordsMatch = true;
+
+                        let matchedMainKeywords = 0;
+
+                        mainKeywords.forEach(keyword => {
+
+                            const keywordLower = keyword.toLowerCase();
+
+                            if (postTitleLower.includes(keywordLower)) {
+
+                                matchedMainKeywords++;
+
+                                score += 30; // 주요 키워드 매칭
+
+                            } else {
+
+                                allMainKeywordsMatch = false;
+
+                            }
+
+                        });
+
+                        if (allMainKeywordsMatch && mainKeywords.length > 0) {
+
+                            score += 100; // 모든 주요 키워드 매칭 보너스
+
+                        }
+
+                        
+
+                        // 3. 제목 정확 일치 (공백 제거 후)
+
+                        if (postTitleLower.includes(cardTitleLower) || cardTitleLower.includes(postTitleLower)) {
+
+                            score += 80;
+
+                        }
+
+                        
+
+                        // 4. 제목 유사도
+
+                        const similarity = calculateSimilarity(cardTitle, postTitle);
+
+                        score += similarity * 40;
+
+                        
+
+                        // 5. 모든 키워드 매칭 점수
+
+                        keywords.forEach(keyword => {
+
+                            const keywordLower = keyword.toLowerCase();
+
+                            if (postTitleLower.includes(keywordLower)) {
+
+                                score += 10;
+
+                            }
+
+                        });
+
+                        
+
+                        // 6. 카드 제목의 주요 단어가 글 제목에 포함되는지
+
+                        cardTitleWords.forEach(word => {
+
+                            if (word.length > 1 && postTitleLower.includes(word)) {
+
+                                score += 8;
+
+                            }
+
+                        });
+
+                        
+
+                        // 7. "과일" 또는 "피해야" 키워드가 있는 경우 추가 점수
+
+                        if (postTitleLower.includes('과일') || postTitleLower.includes('피해야')) {
+
+                            score += 20;
+
+                        }
+
+                        
+
+                        if (score > bestScore) {
+
+                            bestScore = score;
+
+                            bestMatch = post;
+
+                        }
+
+                    });
+
+                    
+
+                    // 매칭된 글의 링크 설정 (점수 기준 낮춤)
+
+                    let matchedMainKeywords = 0;
+
+                    if (bestMatch) {
+
+                        mainKeywords.forEach(kw => {
+
+                            if (bestMatch.title.rendered.toLowerCase().includes(kw.toLowerCase())) {
+
+                                matchedMainKeywords++;
+
+                            }
+
+                        });
+
+                    }
+
+                    
+
+                    if (bestMatch && bestScore >= 10) {
+
+                        usedPostIds.add(bestMatch.id); // 사용된 글 표시
+
+                        const backUrl = encodeURIComponent(window.location.pathname.split('/').pop());
+
+                        card.href = `post-detail.html?id=${bestMatch.id}&back=${backUrl}`;
+
+                        console.log(`✅ 매칭: "${cardTitle}" -> "${bestMatch.title.rendered}" (점수: ${bestScore}, 주요 키워드 매칭: ${matchedMainKeywords}/${mainKeywords.length})`);
+
+                    } else {
+
+                        console.warn(`⚠️ 매칭 실패: "${cardTitle}" (최고 점수: ${bestScore})`);
+
+                        // 매칭 실패 시 상위 3개 후보 출력
+
+                        const candidates = posts
+
+                            .filter(p => !usedPostIds.has(p.id))
+
+                            .map(post => {
+
+                                const postTitle = post.title.rendered.toLowerCase();
+
+                                let score = 0;
+
+                                mainKeywords.forEach(kw => {
+
+                                    if (postTitle.includes(kw.toLowerCase())) score += 10;
+
+                                });
+
+                                if (postTitle.includes('과일') || postTitle.includes('피해야')) score += 5;
+
+                                return { post, score };
+
+                            })
+
+                            .sort((a, b) => b.score - a.score)
+
+                            .slice(0, 3);
+
+                        console.log(`💡 "${cardTitle}" 매칭 후보:`, candidates.map(c => `${c.post.title.rendered} (점수: ${c.score})`));
+
+                    }
+
+                });
+
+                
+
+            } catch (error) {
+
+                console.error('Error matching posts:', error);
+
+            }
+
+        }
+
+        
+
+        // 페이지 로드 시 실행
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            matchFoodPosts();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
