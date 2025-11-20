@@ -305,10 +305,58 @@
 
         
 
+        /* ========== 뒤로가기 버튼 (표준 위치) ========== */
+
+        .back-button {
+
+            display: inline-block;
+
+            margin: 20px 0 30px 0;
+
+            margin-left: 0;
+
+            padding: 12px 24px;
+
+            background: rgba(102, 126, 234, 0.1);
+
+            color: #667eea;
+
+            text-decoration: none;
+
+            border-radius: 50px;
+
+            font-weight: 600;
+
+            font-size: 15px;
+
+            transition: all 0.3s;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+        }
+
         
+
+        .back-button:hover {
+
+            background: rgba(102, 126, 234, 0.2);
+
+            transform: translateX(-5px);
+
+        }
+
         
-                
+
+        .back-button::before {
+
+            content: '← ';
+
+            font-weight: bold;
+
+        }
+
         
+
         /* ========== 콘텐츠 영역 ========== */
 
         .health-card-container {
@@ -696,35 +744,6 @@
 
     
 
-        
-        
-        
-        
-        
-    
-        .back-button {
-                    display: inline-block;
-                    margin: 30px 0 30px 0;
-                    padding: 12px 24px;
-                    background: white;
-                    color: #667eea;
-                    text-decoration: none;
-                    border-radius: 50px;
-                    font-weight: 600;
-                    font-size: 16px;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-                    transition: all 0.3s;
-                }
-                
-                .back-button:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-                }
-                
-                .back-button::before {
-                    content: '← ';
-                    font-weight: bold;
-                }
     </style>
 
 
@@ -735,7 +754,7 @@
             <!-- 헤더 -->
     <header class="main-header">
         <div class="header-content">
-            <a href="index-v3.html" class="logo-container">
+            <a href="index-v2.html" class="logo-container">
                 <img src="https://health9988234.mycafe24.com/wp-content/uploads/2025/11/cropped-1-1.png" 
                      alt="9988 건강 연구소" 
                      class="logo-image">
@@ -743,7 +762,7 @@
             
             <nav class="main-nav" id="mainNav">
                 <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
-                <a href="index-v3.html" class="nav-item">질환별 정보</a>
+                <a href="index-v2.html" class="nav-item">질환별 정보</a>
                 <a href="food-main.html" class="nav-item">식단/음식</a>
                 <a href="exercise-main.html" class="nav-item">운동/활동</a>
                 <a href="lifestyle-main.html" class="nav-item">생활습관</a>
@@ -774,7 +793,7 @@
 
             <div class="health-cards-grid">
 
-            <a href="lifestyle-habits.html" class="health-card" style="--card-color-1:#667eea; --card-color-2:#764ba2;">
+            <a href="lifestyle-생활습관.html" class="health-card" style="--card-color-1:#667eea; --card-color-2:#764ba2;">
 
                 <div class="health-card-icon">🌟</div>
 
@@ -784,7 +803,7 @@
 
             
 
-            <a href="lifestyle-tips.html" class="health-card" style="--card-color-1:#FA709A; --card-color-2:#FEE140;">
+            <a href="lifestyle-생활습관바꾸기팁.html" class="health-card" style="--card-color-1:#FA709A; --card-color-2:#FEE140;">
 
                 <div class="health-card-icon">💡</div>
 

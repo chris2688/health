@@ -102,36 +102,45 @@
             cursor: pointer;
             padding: 10px;
         }
-        .mobile-close-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 1001;
+        
+        /* ========== 뒤로가기 버튼 (헤더 밖) ========== */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /* ========== 뒤로가기 버튼 ========== */
+        .back-button {
+            display: inline-block;
+            margin: 0 0 30px 0;
+            margin-left: max(20px, calc((100% - 1200px) / 2 + 20px));
+            padding: 12px 24px;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
-        @media (max-width: 768px) {
-            .mobile-close-btn {
-                display: block;
-            }
+        .back-button:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(-5px);
         }
         
-                                
-        
-                        
-        .site-main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .back-button::before {
+            content: '← ';
+            font-weight: bold;
         }
-        
-                
         
         /* ========== 콘텐츠 영역 ========== */
         .health-card-container {
@@ -262,25 +271,6 @@
             .mobile-menu-btn {
                 display: block;
             }
-        .mobile-close-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 1001;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-close-btn {
-                display: block;
-            }
-        }
             
             
             
@@ -301,14 +291,7 @@
         .page-title {
             text-align: center;
         }
-
-
-        
-        
-        
-        
-        
-    </style>
+</style>
 
     
     <style>
@@ -417,65 +400,20 @@
         .page-title {
             text-align: center;
         }
-
-        
-        
-        
-        
-        
-    
-        
-                
-                
-                
-                
-    
-
-        
-        
-        
-        
-        
-    
-
-        .back-button {
-            display: inline-block;
-            margin: 30px 0 30px 0;
-            padding: 12px 24px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-        }
-        
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-        
-        .back-button::before {
-            content: '← ';
-            font-weight: bold;
-        }
-    </style>
+</style>
 
 </head>
 <body>
     <header class="main-header">
         <div class="header-content">
-            <a href="index-v3.html" class="logo-container">
+            <a href="index-v2.html" class="logo-container">
                 <img src="https://health9988234.mycafe24.com/wp-content/uploads/2025/11/cropped-1-1.png" 
                      alt="9988 건강 연구소" 
                      class="logo-image">
             </a>
             
-                                    <nav class="main-nav" id="mainNav">
-                <button class="mobile-close-btn" id="mobileCloseBtn">✕</button>
-                <a href="index-v3.html" class="nav-item">질환별 정보</a>
+                        <nav class="main-nav" id="mainNav">
+                <a href="index-v2.html" class="nav-item">질환별 정보</a>
                 <a href="food-main.html" class="nav-item">식단/음식</a>
                 <a href="exercise-main.html" class="nav-item">운동/활동</a>
                 <a href="lifestyle-main.html" class="nav-item">생활습관</a>
@@ -936,157 +874,31 @@
             }
         }
         
-                // 페이지 로드 시 실행
+        // 페이지 로드 시 실행
         document.addEventListener('DOMContentLoaded', async function() {
             // 페이지 제목 가져오기
             const pageTitle = document.querySelector('.page-title')?.textContent?.trim() || 
                              document.querySelector('h1')?.textContent?.trim() || '';
             
-            // 현재 페이지 파일명 가져오기 (더 강력한 방법)
-            let currentPage = '';
+            // 페이지 제목으로 카테고리 자동 찾기
+            let categorySlug = await findCategoryByPageTitle(pageTitle);
             
-            // 방법 1: pathname에서 추출
-            const pathname = window.location.pathname;
-            if (pathname) {
-                const parts = pathname.split('/');
-                currentPage = parts[parts.length - 1];
-            }
-            
-            // 방법 2: 전체 URL에서 추출
-            if (!currentPage || !currentPage.endsWith('.html')) {
-                const href = window.location.href;
-                const match = href.match(/\/([^/]+\.html)($|\?|#)/);
-                if (match) {
-                    currentPage = match[1];
-                }
-            }
-            
-            // 방법 3: 페이지 제목으로 매핑
-            const titleToPage = {
-                '고혈압': 'sub-고혈압.html',
-                '고지혈증': 'sub-고지혈증.html',
-                '협심증/심근경색': 'sub-협심증심근경색.html',
-                '동맥경화': 'sub-동맥경화.html',
-                '뇌졸중': 'sub-뇌졸중.html',
-                '당뇨': 'sub-당뇨.html',
-                '공복혈당장애': 'sub-공복혈당장애.html',
-                '당뇨병합병증': 'sub-당뇨병합병증.html',
-                '관절염': 'sub-관절염.html',
-                '퇴행성관절염': 'sub-퇴행성관절염.html',
-                '허리디스크/목디스크': 'sub-허리디스크목디스크.html',
-                '골다공증': 'sub-골다공증.html',
-                '오십견': 'sub-오십견.html',
-                '갱년기': 'sub-갱년기.html',
-                '갱년기증후군': 'sub-갱년기증후군.html',
-                '갑상선': 'sub-갑상선.html',
-                '대사증후군': 'sub-대사증후군.html',
-                '우울증': 'sub-우울증.html',
-                '우울증/번아웃': 'sub-우울증번아웃.html',
-                '치매': 'sub-치매.html',
-                '치매/경도인지장애': 'sub-치매경도인지장애.html',
-                '수면장애': 'sub-수면장애.html',
-                '수면장애/불면증': 'sub-수면장애불면증.html',
-                '불안장애': 'sub-불안장애.html',
-                '위염': 'sub-위염.html',
-                '위염/위궤양': 'sub-위염위궤양.html',
-                '위염/역류식': 'sub-위염역류식.html',
-                '역류성식도염': 'sub-역류성식도염.html',
-                '지방간': 'sub-지방간.html',
-                '과민성대장증후군': 'sub-과민성대장증후군.html',
-                '대장암': 'sub-대장암.html',
-                '백내장': 'sub-백내장.html',
-                '녹내장': 'sub-녹내장.html',
-                '백내장/녹내장': 'sub-백내장녹내장.html',
-                '치주질환': 'sub-치주질환.html',
-                '치주염/치아손실': 'sub-치주염치아손실.html',
-                '이명/현훈': 'sub-이명현훈.html',
-                '이명/어지럼증': 'sub-이명어지럼증.html',
-                '비만': 'sub-비만.html',
-                '비만/체형변화': 'sub-비만체형변화.html',
-            };
-            
-            if (!currentPage || !currentPage.endsWith('.html')) {
-                currentPage = titleToPage[pageTitle] || 'sub-고혈압.html';
-            }
-            
-            console.log('[DEBUG] pathname:', window.location.pathname);
-            console.log('[DEBUG] href:', window.location.href);
-            console.log('[DEBUG] 페이지 제목:', pageTitle);
-            console.log('[DEBUG] 현재 페이지:', currentPage);
-            
-            // 하드코딩된 매핑 사용 (우선순위)
-            const pageToCategory = {
-                'sub-고혈압.html': ['고혈압', 'cardiovascular', '심혈관-질환'],
-                'sub-고지혈증.html': ['고지혈증', 'hyperlipidemia', 'cardiovascular', '심혈관-질환'],
-                'sub-협심증심근경색.html': ['협심증', '심근경색', 'cardiovascular', '심혈관-질환'],
-                'sub-동맥경화.html': ['동맥경화', 'cardiovascular', '심혈관-질환'],
-                'sub-뇌졸중.html': ['뇌졸중', 'stroke', 'cardiovascular', '심혈관-질환'],
-                'sub-당뇨.html': ['당뇨', 'diabetes', '당뇨병'],
-                'sub-공복혈당장애.html': ['공복혈당', 'diabetes', '당뇨병'],
-                'sub-당뇨병합병증.html': ['당뇨병합병증', 'diabetes', '당뇨병'],
-                'sub-관절염.html': ['관절염', 'musculoskeletal', '관절-근골격계-질환'],
-                'sub-퇴행성관절염.html': ['퇴행성관절염', 'musculoskeletal', '관절-근골격계-질환'],
-                'sub-허리디스크목디스크.html': ['허리디스크', '목디스크', 'musculoskeletal', '관절-근골격계-질환'],
-                'sub-골다공증.html': ['골다공증', 'musculoskeletal', '관절-근골격계-질환'],
-                'sub-오십견.html': ['오십견', 'musculoskeletal', '관절-근골격계-질환'],
-                'sub-갱년기.html': ['갱년기', 'endocrine', '호르몬-내분비-질환'],
-                'sub-갱년기증후군.html': ['갱년기', 'endocrine', '호르몬-내분비-질환'],
-                'sub-갑상선.html': ['갑상선', 'endocrine', '호르몬-내분비-질환'],
-                'sub-대사증후군.html': ['대사증후군', 'endocrine', '호르몬-내분비-질환'],
-                'sub-우울증.html': ['우울증', 'neuroscience', '정신-건강-신경계'],
-                'sub-우울증번아웃.html': ['우울증', '번아웃', 'neuroscience', '정신-건강-신경계'],
-                'sub-치매.html': ['치매', 'neuroscience', '정신-건강-신경계'],
-                'sub-치매경도인지장애.html': ['치매', '인지장애', 'neuroscience', '정신-건강-신경계'],
-                'sub-수면장애.html': ['수면장애', 'neuroscience', '정신-건강-신경계'],
-                'sub-수면장애불면증.html': ['수면장애', '불면증', 'neuroscience', '정신-건강-신경계'],
-                'sub-불안장애.html': ['불안장애', 'neuroscience', '정신-건강-신경계'],
-                'sub-위염.html': ['위염', 'digestive', '소화기-질환'],
-                'sub-위염위궤양.html': ['위염', '위궤양', 'digestive', '소화기-질환'],
-                'sub-위염역류식.html': ['위염', '역류성식도염', 'digestive', '소화기-질환'],
-                'sub-역류성식도염.html': ['역류성식도염', 'digestive', '소화기-질환'],
-                'sub-지방간.html': ['지방간', 'digestive', '소화기-질환'],
-                'sub-과민성대장증후군.html': ['과민성대장증후군', 'digestive', '소화기-질환'],
-                'sub-대장암.html': ['대장암', 'digestive', '소화기-질환'],
-                'sub-백내장.html': ['백내장', 'eyes-dental', '안과-치과-기타'],
-                'sub-녹내장.html': ['녹내장', 'eyes-dental', '안과-치과-기타'],
-                'sub-백내장녹내장.html': ['백내장', '녹내장', 'eyes-dental', '안과-치과-기타'],
-                'sub-치주질환.html': ['치주질환', 'eyes-dental', '안과-치과-기타'],
-                'sub-치주염치아손실.html': ['치주염', '치아손실', 'eyes-dental', '안과-치과-기타'],
-                'sub-이명현훈.html': ['이명', '현훈', 'eyes-dental', '안과-치과-기타'],
-                'sub-이명어지럼증.html': ['이명', '어지럼증', 'eyes-dental', '안과-치과-기타'],
-                'sub-비만.html': ['비만', 'eyes-dental', '안과-치과-기타'],
-                'sub-비만체형변화.html': ['비만', '체형변화', 'eyes-dental', '안과-치과-기타'],
-            };
-            
-            // 매핑에서 카테고리 가져오기
-            let categorySlug = pageToCategory[currentPage];
-            
-            console.log('[DEBUG] 매핑 전 categorySlug:', categorySlug);
-            
-            // 매핑에 없으면 페이지 제목으로 자동 찾기 시도
+            // 찾지 못하면 하드코딩된 매핑 사용 (백업)
             if (!categorySlug) {
-                try {
-                    const foundSlug = await findCategoryByPageTitle(pageTitle);
-                    if (foundSlug) {
-                        categorySlug = [foundSlug];
-                    }
-                } catch (error) {
-                    console.warn('자동 매핑 실패, 기본값 사용:', error);
-                }
+                const pageToCategory = {
+                    'news-main.html': 'health-news',
+                    'sub-고혈압.html': 'cardiovascular',  // 심혈관 질환
+                    'sub-당뇨.html': 'diabetes',
+                    'sub-고지혈증.html': 'cardiovascular',
+                };
+                
+                const currentPage = window.location.pathname.split('/').pop();
+                categorySlug = pageToCategory[currentPage] || null;
             }
             
-            // 배열이 아니면 배열로 변환
-            if (categorySlug && !Array.isArray(categorySlug)) {
-                categorySlug = [categorySlug];
-            }
+            console.log('페이지 제목:', pageTitle);
+            console.log('매칭된 카테고리:', categorySlug);
             
-            // 여전히 없으면 페이지 제목을 카테고리로 사용
-            if (!categorySlug || categorySlug.length === 0) {
-                categorySlug = [pageTitle];
-            }
-            
-            console.log('[DEBUG] 최종 매칭된 카테고리:', categorySlug);
-            
-            loadPosts(categorySlug || [], pageTitle);
+            loadPosts([categorySlug], pageTitle);
         });
     </script>
